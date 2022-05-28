@@ -64,8 +64,8 @@ namespace Laboratorio5.Handlers
 
 		public bool EditarPais(PaisModel pais)
 		{
-			var consulta = @"UPDATE INTO [dbo].[Pais] SET Nombre=@Nombre, Idioma=@Idioma,
-							Continente=@Continente WHERE Id=@Id ";
+			var consulta = @"UPDATE [dbo].[Pais] SET Nombre = @Nombre, Idioma = @Idioma,
+							Continente = @Continente WHERE Id = @Id ";
 			var comandoParaConsulta = new SqlCommand(consulta, conexion);
 			comandoParaConsulta.Parameters.AddWithValue("@Nombre", pais.Nombre);
 			comandoParaConsulta.Parameters.AddWithValue("@Idioma", pais.Idioma);
