@@ -89,5 +89,22 @@ namespace Laboratorio5.Controllers
                 return View();
             }
         }
+
+
+
+        [HttpPost]
+        public ActionResult BorrarPais(PaisModel pais)
+        {
+            try
+            {
+                var paisesHandler = new PaisesHandler();
+                paisesHandler.BorrarPais(pais);
+                return RedirectToAction("Index", "Paises");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
