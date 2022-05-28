@@ -83,6 +83,7 @@ namespace Laboratorio5.Controllers
                 var paisesHandler = new PaisesHandler();
                 paisesHandler.EditarPais(pais);
                 return RedirectToAction("Index", "Paises");
+                //PAISES
             }
             catch
             {
@@ -90,6 +91,29 @@ namespace Laboratorio5.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult BorrarPais(int? identificador)
+        {
+            ActionResult vista;
+            try
+            {
+                var paisesHandler = new PaisesHandler();
+                var pais = paisesHandler.ObtenerPaises().Find(model => model.Id == identificador);
+                if (pais == null)
+                {
+                    vista = RedirectToAction("index");
+                }
+                else
+                {
+                    vista = View(pais);
+                }
+            }
+            catch
+            {
+                vista = RedirectToAction("Index");
+            }
+            return vista;
+        }
 
 
         [HttpPost]

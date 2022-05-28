@@ -32,9 +32,9 @@
                     <td>@item.Idioma</td>
                     <td>@item.Continente</td>
                     <td>@Html.ActionLink("Editar", "EditarPais", new {identificator = @item.Id},
-                    new {@class= "btn btn alert-info", @onclick = "return confirm ('¿Quiere editar este pais?');"})</td>
+                    new {@class= "btn btn alert-info", @onclick = "return confirm('¿Quiere editar este pais?')"})</td>
                     <td>@Html.ActionLink("Borrar", "BorrarPais", new {identificator = @item.Id},
-                    new {@class= "btn btn alert-danger", @onclick = "return confirm ('¿Quiere borrar este pais?');"})</td>
+                    new {@class= "btn btn alert-danger", @onclick = "return confirm('¿Quiere borrar este pais')"})</td>
                 </tr>
             }
         </tbody>

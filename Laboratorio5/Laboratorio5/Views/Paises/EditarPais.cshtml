@@ -11,7 +11,7 @@
     </head>
     <body>
   
-@using (Html.BeginForm("EditarPais", "Paises", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("EditarPais", "paises", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <h1>Formulario de edición de países</h1>
@@ -23,14 +23,14 @@
             @Html.ValidationMessageFor(model => model.Nombre, "", new { @class="text-danger" })
         </div>
         <div class="form-group">
-        @Html.LabelFor(model => model.Continente)
-        @Html.DropDownListFor(model => model.Continente, listaContinentes, "-Sin selección-", new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Continente, "", new { @class = "text-danger" })
+          @Html.LabelFor(model => model.Continente)
+          @Html.DropDownListFor(model => model.Continente, listaContinentes, "-Sin selección-", new { @class = "form-control" })
+          @Html.ValidationMessageFor(model => model.Continente, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
-        @Html.LabelFor(model => model.Idioma)
-        @Html.TextBoxFor(model => model.Idioma, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Idioma, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.Idioma)
+            @Html.TextBoxFor(model => model.Idioma, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Idioma, "", new { @class = "text-danger" })
         </div>
         <input type="submit" class="btn btn-success" value="Aplicar cambio" />
     </div>

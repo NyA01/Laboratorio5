@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Laboratorio5.Models;
+﻿using Laboratorio5.Models;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -64,13 +60,15 @@ namespace Laboratorio5.Handlers
 
 		public bool EditarPais(PaisModel pais)
 		{
-			var consulta = @"UPDATE [dbo].[Pais] SET Nombre = @Nombre, Idioma = @Idioma,
-							Continente = @Continente WHERE Id = @Id ";
+			var consulta = @"UPDATE [dbo].[Pais] SET Nombre = @Nombre,
+							Idioma = @Idioma,
+							Continente = @Continente 
+							WHERE Id = @Id";
 			var comandoParaConsulta = new SqlCommand(consulta, conexion);
 			comandoParaConsulta.Parameters.AddWithValue("@Nombre", pais.Nombre);
 			comandoParaConsulta.Parameters.AddWithValue("@Idioma", pais.Idioma);
 			comandoParaConsulta.Parameters.AddWithValue("@Continente", pais.Continente);
-			comandoParaConsulta.Parameters.AddWithValue("@Id", pais.Id);
+			comandoParaConsulta.Parameters.AddWithValue("Id", pais.Id);
 
 			conexion.Open();
 			bool exito = comandoParaConsulta.ExecuteNonQuery() >= 1;
@@ -80,8 +78,10 @@ namespace Laboratorio5.Handlers
 
 		public bool BorrarPais(PaisModel pais)
 		{
-			var consulta = @"Delete INTO [dbo].[Pais] WHERE Id=@Id ";
+			var consulta = @"Delete INTO [dbo].[Pais] 
+								WHERE Id=@Id";
 			var comandoParaConsulta = new SqlCommand(consulta, conexion);
+			comandoParaConsulta.Parameters.AddWithValue("Id", pais.Id);
 			conexion.Open();
 			bool exito = comandoParaConsulta.ExecuteNonQuery() >= 1;
 			conexion.Close();
