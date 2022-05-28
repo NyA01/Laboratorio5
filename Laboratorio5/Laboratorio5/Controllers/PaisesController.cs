@@ -23,7 +23,7 @@ namespace Laboratorio5.Controllers
         [HttpGet]
         public ActionResult CrearPais()
         {
-            return View;
+            return View();
         }
 
         [HttpPost]
@@ -41,8 +41,6 @@ namespace Laboratorio5.Controllers
                         ViewBag.Message = "El país" + " " + pais.Nombre + " fue creado con éxito";
                         ModelState.Clear();
                     }
-
-
                 }
                 return View();
             }
