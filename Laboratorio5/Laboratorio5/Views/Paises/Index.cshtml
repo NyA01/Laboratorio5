@@ -11,6 +11,7 @@
 <h1>@ViewBag.MainTitle </h1>
 
 <div>
+    <a href="@Url.Action("CrearPais","Paises")" class="btn btn-success"> Crear Pais</a>
     <table class="table">
         <thread>
             <tr>
@@ -18,6 +19,8 @@
                 <th>Nombre</th>
                 <th>Idioma</th>
                 <th>Continente</th>
+                 <th>Editar</th>
+                 <th>Borrar</th>
             </tr>
         </thread>
         <tbody>
@@ -28,8 +31,11 @@
                     <td>@item.Nombre</td>
                     <td>@item.Idioma</td>
                     <td>@item.Continente</td>
+                    <td>@Html.ActionLink("Editar", "EditarPais", new {identificator = @item.Id},
+                    new {@class= "btn btn alert-info", @onclick = "return confirm ('¿Quiere editar este pais?');"})</td>
+                    <td>@Html.ActionLink("Borrar", "BorrarPais", new {identificator = @item.Id},
+                    new {@class= "btn btn alert-danger", @onclick = "return confirm ('¿Quiere borrar este pais?');"})</td>
                 </tr>
-
             }
         </tbody>
     </table>
