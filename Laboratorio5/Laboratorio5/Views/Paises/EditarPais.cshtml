@@ -1,6 +1,6 @@
 ﻿@model Laboratorio5.Models.PaisModel
 @{
-    ViewBag.Title = "Editar Pais";
+    ViewBag.Title = "Editar País";
     List<SelectListItem> listaContinentes = new List<SelectListItem>() { new
     SelectListItem { Text = "América" }, new SelectListItem { Text = "Asia" }, new
     SelectListItem { Text = "Europa" }, new SelectListItem { Text = "Oceanía" }, new
@@ -11,7 +11,7 @@
     </head>
     <body>
   
-@using (Html.BeginForm("EditarPais", "paises", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("EditarPais", "Paises", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <h1>Formulario de edición de países</h1>
@@ -32,7 +32,7 @@
         @Html.TextBoxFor(model => model.Idioma, new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.Idioma, "", new { @class = "text-danger" })
         </div>
-        <input type="submit" class="btn btn-success" value="Editar" />
+        <input type="submit" class="btn btn-success" value="Aplicar cambio" />
     </div>
 }
 </body>
